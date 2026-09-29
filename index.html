@@ -1,469 +1,562 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="Jeremy Dehorty's portfolio — enterprise IT, networking, cloud infrastructure, and automation."
+    >
+
     <link rel="icon" type="image/png" href="favicon.png">
-    <title>Jeremy Dehorty | IT Portfolio</title>
-</head>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
+    <title>Jeremy Dehorty | Infrastructure, Networking & Cloud</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- =========================
-         NAVIGATION
-    ========================== -->
-
-    <nav>
+    <header class="site-header">
         <div class="nav-container">
 
-            <a href="#" class="logo">JD<span>.</span></a>
+            <a
+                class="logo"
+                href="#top"
+                aria-label="Jeremy Dehorty home"
+            >
+                Jeremy Dehorty
+            </a>
 
-            <div class="nav-links">
-                <a href="#about">About</a>
+            <nav
+                class="nav-links"
+                aria-label="Primary navigation"
+            >
+                <a href="#work">Work</a>
                 <a href="#experience">Experience</a>
-                <a href="#certifications">Certifications</a>
-                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
                 <a href="#education">Education</a>
                 <a href="#contact">Contact</a>
-            </div>
+            </nav>
 
         </div>
-    </nav>
-
-
-    <!-- =========================
-         HERO
-    ========================== -->
-
-    <header class="hero">
-
-        <div class="hero-content">
-
-            <p class="intro">SYSTEMS • NETWORKING • CLOUD • AUTOMATION</p>
-
-<h1>
-    I MAKE INFRASTRUCTURE<br>
-    <span>WORK.</span>
-</h1>
-
-<p class="hero-description">
-    I'm Jeremy — an IT professional working with enterprise endpoints,
-    secure systems, network infrastructure, and troubleshooting.
-    I'm expanding that foundation into cloud engineering and DevOps
-    through Linux, automation, infrastructure, and deployment projects.
-</p>
-
-
-            <div class="hero-buttons">
-
-                <div class="hero-buttons">
-
-    <a href="#projects" class="primary-btn">
-        Explore My Work
-    </a>
-
-    <a href="#experience" class="secondary-btn">
-        View Experience
-    </a>
-
-</div>
-
-</div>
-
-</header>
-
-<!-- TERMINAL -->
-<!-- INTERACTIVE TERMINAL -->
-<!-- INTERACTIVE TERMINAL -->
-<!-- INTERACTIVE TERMINAL -->
-<div class="terminal">
-
-    <div class="terminal-header">
-
-        <div class="terminal-dots">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <span class="terminal-title">
-            jeremy@portfolio:~
-        </span>
-
-    </div>
-
-    <div class="terminal-body" id="terminal-body">
-
-        <div id="terminal-content">
-
-            <div class="terminal-output welcome-message">
-                JeremyOS v1.0<br>
-                Type <strong>help</strong> to see available commands.
-            </div>
-
-        </div>
-
-        <div class="terminal-input-line">
-
-            <span class="prompt">jeremy@portfolio:~$</span>
-
-            <input
-                type="text"
-                id="terminal-input"
-                autocomplete="off"
-                spellcheck="false"
-                aria-label="Terminal command"
-            >
-
-        </div>
-
-    </div>
-
-</div>
-
-<main>
-
-</div>
-
-    <!-- =========================
-         MAIN CONTENT
-    ========================== -->
-
-    <main>
-
-
-        <!-- ABOUT -->
-
-        <section id="about">
-
-            <p class="section-label">ABOUT</p>
-
-            <h2>About Me</h2>
-
-            <p>
-                I'm an IT professional with hands-on experience supporting
-                enterprise systems, secure environments, networking, and
-                technical infrastructure.
-            </p>
-
-            <p>
-                I'm currently expanding my skills in cloud computing,
-                networking, DevOps, cybersecurity, and automation while
-                building projects that demonstrate those skills.
-            </p>
-
-        </section>
-
-        <div class="tech-stack">
-    <span>TCP/IP</span>
-    <span>DNS</span>
-    <span>DHCP</span>
-    <span>VLANs</span>
-    <span>Windows</span>
-    <span>Linux</span>
-    <span>Git</span>
-    <span>PowerShell</span>
-    <span>Security+</span>
-</div>
-
-<section id="skills">
-
-    <p class="section-label">WHAT I DO</p>
-    <h2>Infrastructure from endpoint to cloud.</h2>
-
-    <div class="skills-grid">
-
-        <div class="skill-card">
-            <p class="skill-icon">01 / NETWORK</p>
-
-            <h3>Networking</h3>
-
-            <p>
-                Troubleshooting connectivity from the endpoint through
-                enterprise network services, with an understanding of
-                addressing, segmentation, routing, switching, and core
-                network protocols.
-            </p>
-
-            <div class="skill-list">
-                <span>TCP/IP</span>
-                <span>DNS</span>
-                <span>DHCP</span>
-                <span>VLANs</span>
-                <span>Routing</span>
-                <span>Switching</span>
-            </div>
-        </div>
-
-
-        <div class="skill-card">
-            <p class="skill-icon">02 / CLOUD</p>
-
-            <h3>Cloud Infrastructure</h3>
-
-            <p>
-                Building my cloud engineering skill set around compute,
-                networking, identity, security, Linux, and highly available
-                infrastructure.
-            </p>
-
-            <div class="skill-list">
-                <span>AWS</span>
-                <span>EC2</span>
-                <span>VPC</span>
-                <span>IAM</span>
-                <span>Linux</span>
-            </div>
-        </div>
-
-
-        <div class="skill-card">
-            <p class="skill-icon">03 / DEVOPS</p>
-
-            <h3>DevOps & Automation</h3>
-
-            <p>
-                Learning to turn manual infrastructure work into repeatable
-                workflows through version control, scripting, automation,
-                and modern deployment practices.
-            </p>
-
-            <div class="skill-list">
-                <span>Git</span>
-                <span>GitHub</span>
-                <span>PowerShell</span>
-                <span>CI/CD</span>
-                <span>Automation</span>
-            </div>
-        </div>
-
-
-        <div class="skill-card">
-            <p class="skill-icon">04 / SECURITY</p>
-
-            <h3>Secure Systems</h3>
-
-            <p>
-                Applying security fundamentals to endpoint administration,
-                access control, system configuration, troubleshooting,
-                and enterprise computing environments.
-            </p>
-
-            <div class="skill-list">
-                <span>Security+</span>
-                <span>IAM</span>
-                <span>Hardening</span>
-                <span>Access Control</span>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-        <!-- EXPERIENCE -->
-
-       <section id="experience">
-
-    <p class="section-label">EXPERIENCE</p>
-    <h2>Enterprise IT in the real world.</h2>
-
-    <div class="experience-item">
-
-        <div class="experience-heading">
-            <div>
-                <h3>United States Air Force</h3>
-                <p class="job-title">Client Systems Technician</p>
-            </div>
-
-            <span class="job-status">CURRENT</span>
-        </div>
-
-        <p class="experience-summary">
-            Supporting enterprise client systems, secure communications,
-            infrastructure, and technical operations in a mission-focused
-            environment.
-        </p>
-
-        <div class="experience-grid">
-
-            <div>
-                <span class="metric">ENTERPRISE</span>
-                <p>Endpoint & Systems Support</p>
-            </div>
-
-            <div>
-                <span class="metric">SECURE</span>
-                <p>Computing Environments</p>
-            </div>
-
-            <div>
-                <span class="metric">INFRA</span>
-                <p>Network & AV Systems</p>
-            </div>
-
-        </div>
-
-        <ul class="experience-bullets">
-
-            <li>
-                Deploy, configure, troubleshoot, and maintain enterprise
-                endpoints, operating systems, applications, peripherals,
-                and user computing environments.
-            </li>
-
-            <li>
-                Diagnose connectivity and infrastructure issues across
-                endpoints, network services, authentication, software,
-                and hardware layers.
-            </li>
-
-            <li>
-                Support secure computing environments and communications
-                systems while following access-control and security
-                requirements.
-            </li>
-
-            <li>
-                Configure and troubleshoot integrated conference-room
-                technology and AV infrastructure, including enterprise
-                audio/video and control systems.
-            </li>
-
-            <li>
-                Support technical deployments and infrastructure upgrades
-                while documenting configurations, troubleshooting findings,
-                and operational procedures.
-            </li>
-
-        </ul>
-
-    </div>
-
-</section>
-
-            </div>
-
-        </section>
-
-
-        <!-- CERTIFICATIONS -->
-
-        <section id="certifications">
-
-            <p class="section-label">CERTIFICATIONS</p>
-
-            <h2>Certifications</h2>
-
-            <div class="tech-stack">
-                <span>CompTIA Security+</span>
-            </div>
-
-        </section>
-
-
-        <!-- PROJECTS -->
-
-        <section id="projects">
-
-            <p class="section-label">MY WORK</p>
-
-            <h2>Featured Projects</h2>
-
-
-            <div class="project-grid">
-
-
-                <!-- PROJECT 1 -->
-
-                <div class="project-card">
-
-                    <p class="project-number">01</p>
-
-                    <h3>Personal Portfolio</h3>
-
-                    <p>
-                        Designed and developed a responsive personal portfolio
-                        website to showcase my technical experience, skills,
-                        certifications, and projects.
-                    </p>
-
-                    <div class="project-tech">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>Git</span>
-                        <span>GitHub</span>
-                    </div>
-
-                    <a href="#" class="project-link">
-                        View Project →
+    </header>
+
+
+    <main id="top">
+
+        <!-- HERO -->
+        <section
+            class="hero"
+            aria-labelledby="hero-title"
+        >
+
+            <div class="hero-content">
+
+                <p class="hero-kicker">
+                    IT Infrastructure · Networking · Cloud
+                </p>
+
+                <h1 id="hero-title">
+                    I build systems, learn how they fail,
+                    and document how they work.
+                </h1>
+
+                <p class="hero-description">
+                    I'm Jeremy Dehorty, an IT professional with hands-on
+                    experience supporting enterprise endpoints, secure
+                    computing environments, network-connected systems,
+                    and technical operations.
+
+                    I'm building deeper engineering experience through
+                    cloud infrastructure, networking, Linux, and automation.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a
+                        class="button button-primary"
+                        href="#work"
+                    >
+                        See my work
+                    </a>
+
+                    <a
+                        class="button button-secondary"
+                        href="https://github.com/jeremydeh1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        GitHub
                     </a>
 
                 </div>
 
+            </div>
 
-                <!-- PROJECT 2 -->
+        </section>
 
-                <div class="project-card">
 
-                    <p class="project-number">02</p>
+        <!-- QUICK PROOF -->
+        <section
+            class="proof-strip"
+            aria-label="Technical snapshot"
+        >
 
-                    <h3>Cloud Infrastructure Lab</h3>
+            <div>
+                <span class="proof-label">
+                    Current role
+                </span>
 
-                    <p>
-                        Cloud infrastructure project demonstrating deployment,
-                        Linux administration, networking, and security concepts.
+                <strong>
+                    Client Systems Technician
+                </strong>
+            </div>
+
+
+            <div>
+                <span class="proof-label">
+                    Certification
+                </span>
+
+                <strong>
+                    CompTIA Security+
+                </strong>
+            </div>
+
+
+            <div>
+                <span class="proof-label">
+                    Building toward
+                </span>
+
+                <strong>
+                    Network · Cloud · DevOps
+                </strong>
+            </div>
+
+        </section>
+
+
+        <!-- WORK -->
+        <section
+            id="work"
+            class="section"
+        >
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    Selected work
+                </p>
+
+                <h2>
+                    Projects with architecture behind them.
+                </h2>
+
+                <p>
+                    These projects are built to practice the decisions
+                    behind infrastructure: addressing, routing, access
+                    control, Linux administration, deployment,
+                    troubleshooting, and documentation.
+                </p>
+
+            </div>
+
+
+            <!-- AWS PROJECT -->
+            <article class="featured-project">
+
+                <div class="project-intro">
+
+                    <p class="project-type">
+                        AWS infrastructure lab
                     </p>
 
-                    <div class="project-tech">
-                        <span>AWS</span>
-                        <span>Linux</span>
-                        <span>Cloud</span>
-                    </div>
+                    <h3>
+                        Public entry point.
+                        Private application tier.
+                    </h3>
 
                     <p>
-                        <a href="https://cloud.jeremydeh.com" target="_blank">View Project →</a>
+                        I built a custom AWS environment instead of relying
+                        on the default VPC.
+
+                        The design uses public and private subnets across
+                        two Availability Zones, with a public EC2 instance
+                        running Nginx in front of a private application
+                        server.
+                    </p>
+
+
+                    <div class="project-links">
+
+                        <a
+                            href="https://cloud.jeremydeh.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Live project
+                        </a>
+
+                        <a
+                            href="https://github.com/jeremydeh1/aws-cloud-infrastructure-lab"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Repository
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ARCHITECTURE -->
+                <div
+                    class="architecture"
+                    aria-label="AWS lab traffic path"
+                >
+
+                    <p class="architecture-title">
+                        Application traffic path
+                    </p>
+
+                    <ol class="architecture-flow">
+                        <li>Internet</li>
+                        <li>Internet Gateway</li>
+                        <li>Public EC2 / Nginx</li>
+                        <li>Private EC2</li>
+                        <li>Application :8080</li>
+                    </ol>
+
+
+                    <dl class="project-facts">
+
+                        <div>
+                            <dt>VPC</dt>
+                            <dd>10.0.0.0/16</dd>
+                        </div>
+
+                        <div>
+                            <dt>Network</dt>
+                            <dd>
+                                2 public + 2 private subnets
+                            </dd>
+                        </div>
+
+                        <div>
+                            <dt>Administration</dt>
+                            <dd>SSH ProxyJump</dd>
+                        </div>
+
+                        <div>
+                            <dt>Service</dt>
+                            <dd>
+                                Nginx reverse proxy + systemd
+                            </dd>
+                        </div>
+
+                    </dl>
+
+                </div>
+
+
+                <!-- PROJECT EVIDENCE -->
+                <div class="project-evidence">
+
+                    <div>
+
+                        <h4>
+                            What I implemented
+                        </h4>
+
+                        <ul>
+                            <li>
+                                Custom VPC and CIDR plan across
+                                two Availability Zones
+                            </li>
+
+                            <li>
+                                Public and private route design
+                                with an Internet Gateway
+                            </li>
+
+                            <li>
+                                Public Amazon Linux EC2 web server
+                                and private EC2 application server
+                            </li>
+
+                            <li>
+                                Security group-to-security group
+                                access for SSH and TCP 8080
+                            </li>
+
+                            <li>
+                                Nginx reverse proxy to the
+                                private application
+                            </li>
+
+                            <li>
+                                systemd service management for
+                                application persistence
+                            </li>
+                        </ul>
+
+                    </div>
+
+
+                    <div>
+
+                        <h4>
+                            How I verified it
+                        </h4>
+
+                        <p>
+                            When the site was initially unreachable,
+                            I worked through the path layer by layer:
+                            Nginx status, local HTTP with curl,
+                            security groups, route tables, the
+                            Internet Gateway, subnet associations,
+                            network ACLs, and external TCP port 80
+                            connectivity.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- NETWORK ENGINEERING PROJECT -->
+            <article class="project-row">
+
+                <div>
+
+                    <p class="project-type">
+                        Network engineering lab · In progress
+                    </p>
+
+                    <h3>
+                        Routing, switching, and segmentation
+                        from the packet level up.
+                    </h3>
+
+                </div>
+
+                <p>
+                    A hands-on lab focused on IPv4 addressing,
+                    subnetting, VLANs, switching, routing, and
+                    troubleshooting.
+
+                    Documentation will be published as the
+                    topology develops.
+                </p>
+
+            </article>
+
+
+            <!-- PORTFOLIO PROJECT -->
+            <article class="project-row">
+
+                <div>
+
+                    <p class="project-type">
+                        This portfolio
+                    </p>
+
+                    <h3>
+                        A small site treated like an
+                        engineering artifact.
+                    </h3>
+
+                </div>
+
+                <p>
+                    Built with semantic HTML and CSS,
+                    version-controlled with Git, and published
+                    through GitHub.
+
+                    The goal is simple: document work clearly
+                    instead of hiding it behind visual effects.
+                </p>
+
+            </article>
+
+        </section>
+
+
+        <!-- EXPERIENCE -->
+        <section
+            id="experience"
+            class="section"
+        >
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    Experience
+                </p>
+
+                <h2>
+                    Enterprise IT where reliability matters.
+                </h2>
+
+            </div>
+
+
+            <article class="experience-item">
+
+                <div class="experience-heading">
+
+                    <div>
+
+                        <h3>
+                            United States Air Force
+                        </h3>
+
+                        <p class="job-title">
+                            Client Systems Technician
+                        </p>
+
+                    </div>
+
+                    <p class="job-status">
+                        Current
                     </p>
 
                 </div>
 
 
-                <!-- PROJECT 3 -->
+                <p class="experience-summary">
+                    Supporting enterprise client systems,
+                    secure communications, infrastructure,
+                    and technical operations in a
+                    mission-focused environment.
+                </p>
 
-                <div class="project-card">
 
-                    <p class="project-number">03</p>
+                <ul class="experience-bullets">
 
-                    <h3>Network Engineering Lab</h3>
+                    <li>
+                        Deploy, configure, troubleshoot, and
+                        maintain enterprise endpoints,
+                        operating systems, applications,
+                        peripherals, and user computing
+                        environments.
+                    </li>
+
+                    <li>
+                        Diagnose connectivity and infrastructure
+                        issues across endpoints, network services,
+                        authentication, software, and hardware
+                        layers.
+                    </li>
+
+                    <li>
+                        Support secure computing environments
+                        and communications systems while
+                        following access-control and security
+                        requirements.
+                    </li>
+
+                    <li>
+                        Configure and troubleshoot integrated
+                        conference-room technology and enterprise
+                        audio, video, and control systems.
+                    </li>
+
+                    <li>
+                        Support technical deployments and
+                        infrastructure upgrades while documenting
+                        configurations, troubleshooting findings,
+                        and procedures.
+                    </li>
+
+                </ul>
+
+            </article>
+
+        </section>
+
+
+        <!-- SKILLS -->
+        <section
+            id="skills"
+            class="section"
+        >
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    Technical foundation
+                </p>
+
+                <h2>
+                    What I work with.
+                </h2>
+
+            </div>
+
+
+            <div class="skills-list">
+
+                <div>
+
+                    <h3>
+                        Networking
+                    </h3>
 
                     <p>
-                        Networking lab demonstrating routing, switching,
-                        segmentation, VLANs, and infrastructure configuration.
-                    </p>
-
-                    <div class="project-tech">
-                        <span>Cisco</span>
-                        <span>VLANs</span>
-                        <span>Networking</span>
-                    </div>
-
-                    <p class="coming-soon">
-                        Coming Soon
+                        TCP/IP, IPv4, subnetting, DNS,
+                        DHCP, VLANs, routing, switching
                     </p>
 
                 </div>
 
+
+                <div>
+
+                    <h3>
+                        Cloud & Linux
+                    </h3>
+
+                    <p>
+                        AWS, VPC, EC2, IAM, security groups,
+                        Linux, Nginx, systemd, SSH
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Automation & tooling
+                    </h3>
+
+                    <p>
+                        Git, GitHub, PowerShell,
+                        infrastructure documentation,
+                        CI/CD fundamentals
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h3>
+                        Security
+                    </h3>
+
+                    <p>
+                        CompTIA Security+, access control,
+                        system hardening, secure administration
+                    </p>
+
+                </div>
 
             </div>
 
@@ -471,35 +564,77 @@
 
 
         <!-- EDUCATION -->
+        <section
+            id="education"
+            class="section"
+        >
 
-        <section id="education">
+            <div class="section-heading">
 
-            <p class="section-label">EDUCATION</p>
+                <p class="section-label">
+                    Education & certification
+                </p>
 
-            <h2>Education</h2>
+                <h2>
+                    Continuing the engineering path.
+                </h2>
 
-            <h3>Cybersecurity & Information Technology</h3>
+            </div>
 
-            <p>
-                Continuing education focused on cybersecurity,
-                networking, cloud computing, and information technology.
-            </p>
+
+            <div class="education-list">
+
+                <article>
+
+                    <h3>
+                        CompTIA Security+
+                    </h3>
+
+                    <p>
+                        Active technical certification.
+                    </p>
+
+                </article>
+
+
+                <article>
+
+                    <h3>
+                        Cybersecurity & Information Technology
+                    </h3>
+
+                    <p>
+                        Continuing education focused on
+                        cybersecurity, networking,
+                        cloud computing, and
+                        information technology.
+                    </p>
+
+                </article>
+
+            </div>
 
         </section>
 
 
         <!-- CONTACT -->
+        <section
+            id="contact"
+            class="section contact"
+        >
 
-        <section id="contact">
+            <div>
 
-            <p class="section-label">CONTACT</p>
+                <p class="section-label">
+                    Contact
+                </p>
 
-            <h2>Let's Connect.</h2>
+                <h2>
+                    I'm interested in infrastructure
+                    problems worth solving.
+                </h2>
 
-            <p>
-                Interested in networking, cloud, DevOps,
-                cybersecurity, and infrastructure opportunities.
-            </p>
+            </div>
 
 
             <div class="contact-links">
@@ -521,35 +656,28 @@
                 </a>
 
                 <a href="mailto:jeremy.dehorty@gmail.com">
-                    Email Me
+                    Email
                 </a>
 
             </div>
 
         </section>
 
-
     </main>
 
 
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer>
+    <footer class="site-footer">
 
         <p>
-            Designed & Built by Jeremy Dehorty
+            Jeremy Dehorty
         </p>
 
         <p>
-            &copy; 2026 Jeremy Dehorty
+            Built and maintained as part of my
+            engineering portfolio.
         </p>
 
     </footer>
 
-<script src="script.js"></script>
-
 </body>
-
 </html>
