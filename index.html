@@ -1,1279 +1,704 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+  <meta
+    name="description"
+    content="Jeremy Dehorty is an IT professional focused on cloud infrastructure, networking, Linux, and automation."
+  >
 
-    <meta
-        name="description"
-        content="Jeremy Dehorty — IT infrastructure, networking, cloud, Linux, and DevOps portfolio."
-    >
+  <title>Jeremy Dehorty — Infrastructure & Cloud</title>
 
-    <title>Jeremy Dehorty | Infrastructure · Networking · Cloud</title>
-
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header class="site-header">
-    <div class="container nav">
+  <div class="container nav">
 
-        <a href="#top" class="brand" aria-label="Jeremy Dehorty home">
-            <span class="brand-mark">JD</span>
+    <a class="name" href="#top">
+      Jeremy Dehorty
+    </a>
 
-            <span class="brand-name">
-                Jeremy Dehorty
-            </span>
-        </a>
+    <nav aria-label="Main navigation">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-        <nav class="nav-links" aria-label="Main navigation">
-            <a href="#work">Work</a>
-            <a href="#experience">Experience</a>
-            <a href="#capabilities">Capabilities</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-        <a
-            class="github-link"
-            href="https://github.com/jeremydeh1"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            GitHub
-            <span>↗</span>
-        </a>
-
-    </div>
+  </div>
 </header>
 
 
 <main id="top">
 
-    <!-- =====================================================
-         HERO
-         ===================================================== -->
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
 
-    <section class="hero">
+      <div>
 
-        <div class="hero-grid-decoration" aria-hidden="true"></div>
+        <p class="intro-label">
+          Infrastructure & Cloud
+        </p>
 
-        <div class="container hero-layout">
+        <h1>
+          I build systems to understand how they actually work.
+        </h1>
 
-            <div class="hero-copy">
+        <p class="hero-text">
+          I'm Jeremy, an IT professional working with enterprise
+          systems while building deeper experience in AWS,
+          networking, Linux, and infrastructure automation.
+        </p>
 
-                <p class="kicker">
-                    IT INFRASTRUCTURE / NETWORKING / CLOUD
-                </p>
+        <div class="hero-links">
+          <a class="button" href="#projects">
+            View my work
+          </a>
 
-                <h1>
-                    Behind every click,
-                    <span>there's a path.</span>
-                </h1>
-
-                <p class="hero-lead">
-                    I like knowing where that path goes, what can break,
-                    and how to make it better.
-                </p>
-
-                <p class="hero-description">
-                    I'm Jeremy Dehorty. I work with enterprise IT systems
-                    and build hands-on projects around networking, AWS,
-                    Linux, automation, and secure infrastructure.
-                </p>
-
-                <div class="hero-actions">
-
-                    <a class="button button-primary" href="#work">
-                        Explore the systems
-                        <span>↓</span>
-                    </a>
-
-                    <a
-                        class="button button-ghost"
-                        href="https://github.com/jeremydeh1"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        View source
-                        <span>↗</span>
-                    </a>
-
-                </div>
-
-                <div class="hero-proof">
-
-                    <div>
-                        <span class="proof-label">CURRENT ROLE</span>
-                        <strong>Client Systems Technician</strong>
-                    </div>
-
-                    <div>
-                        <span class="proof-label">CERTIFICATION</span>
-                        <strong>CompTIA Security+</strong>
-                    </div>
-
-                    <div>
-                        <span class="proof-label">DIRECTION</span>
-                        <strong>Network → Cloud → DevOps</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Hero system visual -->
-            <div class="hero-system">
-
-                <div class="system-heading">
-                    <div>
-                        <span class="system-overline">SYSTEM MAP</span>
-                        <strong>AWS CLOUD LAB</strong>
-                    </div>
-
-                    <span class="system-version">01</span>
-                </div>
-
-                <div class="system-map" id="heroSystemMap">
-
-                    <div class="map-column">
-
-                        <button
-                            class="map-node"
-                            data-hero-node="internet"
-                            type="button"
-                        >
-                            <span class="node-number">01</span>
-                            <span class="node-name">Internet</span>
-                            <small>Request origin</small>
-                        </button>
-
-                    </div>
-
-                    <div class="map-path">
-                        <span></span>
-                    </div>
-
-                    <div class="map-column">
-
-                        <button
-                            class="map-node"
-                            data-hero-node="edge"
-                            type="button"
-                        >
-                            <span class="node-number">02</span>
-                            <span class="node-name">Public Edge</span>
-                            <small>IGW + routing</small>
-                        </button>
-
-                    </div>
-
-                    <div class="map-path">
-                        <span></span>
-                    </div>
-
-                    <div class="map-column">
-
-                        <button
-                            class="map-node map-node-accent"
-                            data-hero-node="nginx"
-                            type="button"
-                        >
-                            <span class="node-number">03</span>
-                            <span class="node-name">Nginx</span>
-                            <small>Public EC2</small>
-                        </button>
-
-                    </div>
-
-                    <div class="map-path">
-                        <span></span>
-                    </div>
-
-                    <div class="map-column">
-
-                        <button
-                            class="map-node map-node-private"
-                            data-hero-node="app"
-                            type="button"
-                        >
-                            <span class="node-number">04</span>
-                            <span class="node-name">Application</span>
-                            <small>Private EC2</small>
-                        </button>
-
-                    </div>
-
-                </div>
-
-                <div class="system-insight">
-                    <span id="heroInsightLabel">NGINX</span>
-
-                    <p id="heroInsight">
-                        Public entry point that reverse-proxies application
-                        traffic into the private subnet.
-                    </p>
-                </div>
-
-                <div class="system-stats">
-
-                    <div>
-                        <span>VPC</span>
-                        <strong>10.0.0.0/16</strong>
-                    </div>
-
-                    <div>
-                        <span>SUBNETS</span>
-                        <strong>4</strong>
-                    </div>
-
-                    <div>
-                        <span>AZs</span>
-                        <strong>2</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
+          <a
+            class="text-link"
+            href="https://github.com/jeremydeh1"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub ↗
+          </a>
         </div>
 
-    </section>
+      </div>
 
 
-    <!-- =====================================================
-         INTRO STRIP
-         ===================================================== -->
+      <aside class="currently">
 
-    <section class="philosophy">
+        <p class="aside-title">
+          Currently
+        </p>
 
-        <div class="container philosophy-layout">
+        <div class="current-item">
+          <span>Role</span>
+          <strong>Client Systems Technician</strong>
+        </div>
 
-            <span>HOW I BUILD</span>
+        <div class="current-item">
+          <span>Certification</span>
+          <strong>CompTIA Security+</strong>
+        </div>
+
+        <div class="current-item">
+          <span>Building</span>
+          <strong>AWS infrastructure labs</strong>
+        </div>
+
+        <div class="current-item">
+          <span>Learning next</span>
+          <strong>Terraform & cloud automation</strong>
+        </div>
+
+      </aside>
+
+    </div>
+  </section>
+
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="container">
+
+      <div class="section-heading">
+        <p>Projects</p>
+
+        <h2>
+          Things I've built and can explain.
+        </h2>
+      </div>
+
+
+      <!-- AWS PROJECT -->
+      <article class="project">
+
+        <div class="project-info">
+
+          <div class="project-number">
+            01
+          </div>
+
+          <div>
+
+            <h3>
+              AWS Cloud Infrastructure Lab
+            </h3>
 
             <p>
-                Understand the system.
-                Build the path.
-                Break assumptions.
-                Verify the result.
-                Document what happened.
+              I built a segmented AWS environment from the network
+              up: a custom VPC, four subnets across two Availability
+              Zones, a public Nginx server, and a private application
+              server.
             </p>
 
-        </div>
+            <p>
+              The goal wasn't just to get a website online. I wanted
+              to understand the complete request path, why the
+              application server could remain private, and how
+              routing and security rules affected connectivity.
+            </p>
 
-    </section>
-
-
-    <!-- =====================================================
-         WORK
-         ===================================================== -->
-
-    <section class="work-section" id="work">
-
-        <div class="container">
-
-            <div class="section-intro">
-
-                <div>
-                    <p class="section-number">01 / WORK</p>
-
-                    <h2>
-                        Projects aren't cards.
-                        <span>They're systems.</span>
-                    </h2>
-                </div>
-
-                <p>
-                    Pick a project. The goal is to show the problem,
-                    architecture, decisions, and proof—not just list
-                    technologies.
-                </p>
-
+            <div class="tags">
+              <span>AWS</span>
+              <span>VPC</span>
+              <span>EC2</span>
+              <span>Linux</span>
+              <span>Nginx</span>
+              <span>Networking</span>
             </div>
 
+            <div class="project-links">
+              <a
+                href="https://cloud.jeremydeh.com"
+                target="_blank"
+                rel="noopener"
+              >
+                Live project ↗
+              </a>
 
-            <!-- Project selector -->
-            <div
-                class="project-tabs"
-                role="tablist"
-                aria-label="Portfolio projects"
-            >
-
-                <button
-                    class="project-tab active"
-                    type="button"
-                    role="tab"
-                    aria-selected="true"
-                    aria-controls="project-aws"
-                    id="tab-aws"
-                    data-project="aws"
-                >
-                    <span>01</span>
-                    AWS Infrastructure
-                </button>
-
-                <button
-                    class="project-tab"
-                    type="button"
-                    role="tab"
-                    aria-selected="false"
-                    aria-controls="project-network"
-                    id="tab-network"
-                    data-project="network"
-                >
-                    <span>02</span>
-                    Network Engineering
-                </button>
-
-                <button
-                    class="project-tab"
-                    type="button"
-                    role="tab"
-                    aria-selected="false"
-                    aria-controls="project-site"
-                    id="tab-site"
-                    data-project="site"
-                >
-                    <span>03</span>
-                    This Portfolio
-                </button>
-
+              <a
+                href="https://github.com/jeremydeh1/aws-cloud-infrastructure-lab"
+                target="_blank"
+                rel="noopener"
+              >
+                GitHub & documentation ↗
+              </a>
             </div>
 
-
-            <!-- =============================================
-                 PROJECT: AWS
-                 ============================================= -->
-
-            <article
-                class="project-panel active"
-                id="project-aws"
-                role="tabpanel"
-                aria-labelledby="tab-aws"
-                data-panel="aws"
-            >
-
-                <div class="project-summary">
-
-                    <div>
-
-                        <p class="project-type">
-                            AWS / LINUX / NETWORKING
-                        </p>
-
-                        <h3>
-                            Public entry point.
-                            <br>
-                            Private application tier.
-                        </h3>
-
-                    </div>
-
-
-                    <div class="project-summary-right">
-
-                        <p>
-                            I built a custom AWS network with public and
-                            private subnets across two availability zones,
-                            then placed Nginx in front of an application
-                            server with no public IPv4 address.
-                        </p>
-
-                        <div class="project-links">
-
-                            <a
-                                href="https://cloud.jeremydeh.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Live project ↗
-                            </a>
-
-                            <a
-                                href="https://github.com/jeremydeh1/aws-cloud-infrastructure-lab"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Repository ↗
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="architecture-shell">
-
-                    <div class="architecture-toolbar">
-
-                        <div>
-                            <span class="toolbar-label">INTERACTIVE ARCHITECTURE</span>
-                            <strong>Trace the request path</strong>
-                        </div>
-
-                        <div class="toolbar-actions">
-
-                            <button
-                                type="button"
-                                class="toolbar-button trace-button"
-                                id="traceButton"
-                            >
-                                Trace request
-                                <span>→</span>
-                            </button>
-
-                            <button
-                                type="button"
-                                class="toolbar-button"
-                                id="securityToggle"
-                                aria-pressed="false"
-                            >
-                                Security view
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="architecture-content">
-
-                        <div class="architecture-canvas">
-
-                            <div
-                                class="architecture-route"
-                                id="architectureRoute"
-                            >
-
-                                <!-- Internet -->
-                                <button
-                                    type="button"
-                                    class="architecture-component"
-                                    data-component="internet"
-                                >
-                                    <span class="component-index">01</span>
-
-                                    <span class="component-symbol">
-                                        ◎
-                                    </span>
-
-                                    <strong>Internet</strong>
-                                    <small>Client request</small>
-                                </button>
-
-
-                                <div class="route-line">
-                                    <span class="route-pulse"></span>
-                                </div>
-
-
-                                <!-- IGW -->
-                                <button
-                                    type="button"
-                                    class="architecture-component"
-                                    data-component="igw"
-                                >
-                                    <span class="component-index">02</span>
-
-                                    <span class="component-symbol">
-                                        ⇄
-                                    </span>
-
-                                    <strong>Internet Gateway</strong>
-                                    <small>VPC edge</small>
-                                </button>
-
-
-                                <div class="route-line">
-                                    <span class="route-pulse"></span>
-                                </div>
-
-
-                                <!-- Nginx -->
-                                <button
-                                    type="button"
-                                    class="architecture-component selected"
-                                    data-component="nginx"
-                                >
-                                    <span class="component-index">03</span>
-
-                                    <span class="component-symbol component-symbol-orange">
-                                        N
-                                    </span>
-
-                                    <strong>Public EC2</strong>
-                                    <small>Nginx · :80</small>
-                                </button>
-
-
-                                <div class="route-line route-line-private">
-                                    <span class="route-pulse"></span>
-                                </div>
-
-
-                                <!-- App -->
-                                <button
-                                    type="button"
-                                    class="architecture-component architecture-private"
-                                    data-component="app"
-                                >
-                                    <span class="component-index">04</span>
-
-                                    <span class="component-symbol component-symbol-blue">
-                                        A
-                                    </span>
-
-                                    <strong>Private EC2</strong>
-                                    <small>Application · :8080</small>
-                                </button>
-
-                            </div>
-
-
-                            <div class="network-boundaries">
-
-                                <div class="boundary boundary-public">
-                                    <span>PUBLIC NETWORK</span>
-
-                                    <strong>
-                                        10.0.1.0/24
-                                    </strong>
-                                </div>
-
-                                <div class="boundary boundary-private">
-                                    <span>PRIVATE NETWORK</span>
-
-                                    <strong>
-                                        10.0.11.0/24
-                                    </strong>
-                                </div>
-
-                            </div>
-
-
-                            <div class="trace-status" aria-live="polite">
-
-                                <span class="trace-status-label">
-                                    REQUEST TRACE
-                                </span>
-
-                                <p id="traceStatus">
-                                    Ready. Select a component or trace the
-                                    complete request.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- Component inspector -->
-                        <aside class="component-inspector">
-
-                            <p class="inspector-eyebrow">
-                                COMPONENT
-                            </p>
-
-                            <h4 id="componentTitle">
-                                Public EC2 / Nginx
-                            </h4>
-
-                            <p id="componentDescription">
-                                Receives HTTP traffic and reverse-proxies
-                                application requests to the private EC2
-                                instance.
-                            </p>
-
-
-                            <dl class="component-properties">
-
-                                <div>
-                                    <dt>Exposure</dt>
-                                    <dd id="componentExposure">
-                                        Public
-                                    </dd>
-                                </div>
-
-                                <div>
-                                    <dt>Traffic</dt>
-                                    <dd id="componentTraffic">
-                                        TCP 80
-                                    </dd>
-                                </div>
-
-                                <div>
-                                    <dt>Purpose</dt>
-                                    <dd id="componentPurpose">
-                                        Reverse proxy
-                                    </dd>
-                                </div>
-
-                            </dl>
-
-
-                            <div class="design-decision">
-
-                                <span>WHY THIS DESIGN?</span>
-
-                                <p id="componentDecision">
-                                    The public server handles the internet
-                                    boundary while the application itself
-                                    remains on a private instance.
-                                </p>
-
-                            </div>
-
-                        </aside>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Troubleshooting -->
-                <div class="diagnostic">
-
-                    <div class="diagnostic-copy">
-
-                        <p class="project-type">
-                            TROUBLESHOOTING STORY
-                        </p>
-
-                        <h3>
-                            The site wasn't reachable.
-                            So I worked the layers.
-                        </h3>
-
-                        <p>
-                            Instead of changing random settings, I moved
-                            from the application outward until the failing
-                            layer became clear.
-                        </p>
-
-                    </div>
-
-
-                    <div class="diagnostic-console">
-
-                        <div class="diagnostic-progress">
-                            <span id="diagnosticProgress"></span>
-                        </div>
-
-                        <div class="diagnostic-stage">
-
-                            <span id="diagnosticStep">
-                                CHECK 01 / 06
-                            </span>
-
-                            <h4 id="diagnosticTitle">
-                                Verify the service
-                            </h4>
-
-                            <p id="diagnosticText">
-                                Confirm Nginx is running before diagnosing
-                                the network around it.
-                            </p>
-
-                        </div>
-
-
-                        <div class="diagnostic-controls">
-
-                            <button
-                                type="button"
-                                id="diagnosticPrev"
-                                aria-label="Previous troubleshooting step"
-                            >
-                                ←
-                            </button>
-
-                            <div class="diagnostic-dots" id="diagnosticDots">
-                                <button
-                                    type="button"
-                                    class="active"
-                                    data-diagnostic-step="0"
-                                    aria-label="Troubleshooting step 1"
-                                ></button>
-
-                                <button
-                                    type="button"
-                                    data-diagnostic-step="1"
-                                    aria-label="Troubleshooting step 2"
-                                ></button>
-
-                                <button
-                                    type="button"
-                                    data-diagnostic-step="2"
-                                    aria-label="Troubleshooting step 3"
-                                ></button>
-
-                                <button
-                                    type="button"
-                                    data-diagnostic-step="3"
-                                    aria-label="Troubleshooting step 4"
-                                ></button>
-
-                                <button
-                                    type="button"
-                                    data-diagnostic-step="4"
-                                    aria-label="Troubleshooting step 5"
-                                ></button>
-
-                                <button
-                                    type="button"
-                                    data-diagnostic-step="5"
-                                    aria-label="Troubleshooting step 6"
-                                ></button>
-                            </div>
-
-                            <button
-                                type="button"
-                                id="diagnosticNext"
-                                aria-label="Next troubleshooting step"
-                            >
-                                →
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- =============================================
-                 PROJECT: NETWORK
-                 ============================================= -->
-
-            <article
-                class="project-panel"
-                id="project-network"
-                role="tabpanel"
-                aria-labelledby="tab-network"
-                data-panel="network"
-                hidden
-            >
-
-                <div class="project-placeholder">
-
-                    <div class="placeholder-number">
-                        02
-                    </div>
-
-                    <div class="placeholder-content">
-
-                        <p class="project-type">
-                            NETWORK ENGINEERING LAB
-                        </p>
-
-                        <h3>
-                            Learning what the packet sees.
-                        </h3>
-
-                        <p>
-                            Building hands-on labs around IPv4 addressing,
-                            subnetting, switching, VLANs, routing, and
-                            troubleshooting.
-                        </p>
-
-
-                        <div class="network-study-map">
-
-                            <div>
-                                <span>01</span>
-                                <strong>Address</strong>
-                                <small>IPv4 + subnetting</small>
-                            </div>
-
-                            <span>→</span>
-
-                            <div>
-                                <span>02</span>
-                                <strong>Segment</strong>
-                                <small>VLANs + switching</small>
-                            </div>
-
-                            <span>→</span>
-
-                            <div>
-                                <span>03</span>
-                                <strong>Route</strong>
-                                <small>Layer 3 paths</small>
-                            </div>
-
-                            <span>→</span>
-
-                            <div>
-                                <span>04</span>
-                                <strong>Verify</strong>
-                                <small>Troubleshooting</small>
-                            </div>
-
-                        </div>
-
-
-                        <div class="in-progress-note">
-                            <span></span>
-
-                            <p>
-                                Currently being developed. Documentation
-                                and topology will be published as the lab
-                                progresses.
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- =============================================
-                 PROJECT: SITE
-                 ============================================= -->
-
-            <article
-                class="project-panel"
-                id="project-site"
-                role="tabpanel"
-                aria-labelledby="tab-site"
-                data-panel="site"
-                hidden
-            >
-
-                <div class="site-project">
-
-                    <div class="site-project-copy">
-
-                        <p class="project-type">
-                            HTML / CSS / JAVASCRIPT / GIT
-                        </p>
-
-                        <h3>
-                            The portfolio is part of the engineering.
-                        </h3>
-
-                        <p>
-                            This site is deliberately built without a
-                            frontend framework. The goal is to understand
-                            the structure and behavior instead of hiding
-                            everything behind generated components.
-                        </p>
-
-
-                        <a
-                            href="https://github.com/jeremydeh1/jeremy-portfolio"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-link"
-                        >
-                            Inspect the repository
-                            <span>↗</span>
-                        </a>
-
-                    </div>
-
-
-                    <div class="site-stack">
-
-                        <div>
-                            <span>STRUCTURE</span>
-                            <strong>Semantic HTML</strong>
-                        </div>
-
-                        <div>
-                            <span>DESIGN</span>
-                            <strong>CSS system</strong>
-                        </div>
-
-                        <div>
-                            <span>INTERACTION</span>
-                            <strong>Vanilla JavaScript</strong>
-                        </div>
-
-                        <div>
-                            <span>DELIVERY</span>
-                            <strong>Git + GitHub Pages</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </article>
+          </div>
 
         </div>
 
-    </section>
 
+        <!-- INTERACTIVE DIAGRAM -->
+        <div class="architecture">
 
-    <!-- =====================================================
-         EXPERIENCE
-         ===================================================== -->
-
-    <section class="experience-section" id="experience">
-
-        <div class="container">
-
-            <div class="section-intro section-intro-dark">
-
-                <div>
-                    <p class="section-number">
-                        02 / EXPERIENCE
-                    </p>
-
-                    <h2>
-                        Production problems
-                        <span>don't care about demos.</span>
-                    </h2>
-                </div>
-
-                <p>
-                    My day-to-day IT work gives the lab projects context:
-                    users, endpoints, infrastructure, access, and systems
-                    that actually have to work.
-                </p>
-
-            </div>
-
-
-            <div class="experience-layout">
-
-                <div class="experience-identity">
-
-                    <span class="experience-current">
-                        CURRENT
-                    </span>
-
-                    <h3>
-                        United States Air Force
-                    </h3>
-
-                    <p>
-                        Client Systems Technician
-                    </p>
-
-                </div>
-
-
-                <div class="experience-work">
-
-                    <article>
-                        <span>01</span>
-
-                        <div>
-                            <h4>Endpoints & systems</h4>
-
-                            <p>
-                                Deploy, configure, and troubleshoot
-                                enterprise endpoints, operating systems,
-                                applications, and peripherals.
-                            </p>
-                        </div>
-                    </article>
-
-
-                    <article>
-                        <span>02</span>
-
-                        <div>
-                            <h4>Connectivity</h4>
-
-                            <p>
-                                Diagnose technical problems across
-                                endpoints, networking, authentication,
-                                software, and hardware.
-                            </p>
-                        </div>
-                    </article>
-
-
-                    <article>
-                        <span>03</span>
-
-                        <div>
-                            <h4>Secure environments</h4>
-
-                            <p>
-                                Support access-controlled systems,
-                                secure computing environments, and
-                                communications requirements.
-                            </p>
-                        </div>
-                    </article>
-
-
-                    <article>
-                        <span>04</span>
-
-                        <div>
-                            <h4>Technical operations</h4>
-
-                            <p>
-                                Support deployments, upgrades,
-                                conference-room technology, technical
-                                documentation, and operational
-                                troubleshooting.
-                            </p>
-                        </div>
-                    </article>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         CAPABILITIES
-         ===================================================== -->
-
-    <section class="capabilities-section" id="capabilities">
-
-        <div class="container">
-
-            <div class="section-intro">
-
-                <div>
-                    <p class="section-number">
-                        03 / CAPABILITIES
-                    </p>
-
-                    <h2>
-                        What I'm
-                        <span>building depth in.</span>
-                    </h2>
-                </div>
-
-                <p>
-                    Select an area to see the technologies and concepts
-                    behind it.
-                </p>
-
-            </div>
-
-
-            <div class="capability-layout">
-
-                <div class="capability-menu">
-
-                    <button
-                        type="button"
-                        class="capability-button active"
-                        data-capability="networking"
-                    >
-                        <span>01</span>
-                        Networking
-                        <strong>→</strong>
-                    </button>
-
-                    <button
-                        type="button"
-                        class="capability-button"
-                        data-capability="cloud"
-                    >
-                        <span>02</span>
-                        Cloud & Linux
-                        <strong>→</strong>
-                    </button>
-
-                    <button
-                        type="button"
-                        class="capability-button"
-                        data-capability="automation"
-                    >
-                        <span>03</span>
-                        Automation
-                        <strong>→</strong>
-                    </button>
-
-                    <button
-                        type="button"
-                        class="capability-button"
-                        data-capability="security"
-                    >
-                        <span>04</span>
-                        Security
-                        <strong>→</strong>
-                    </button>
-
-                </div>
-
-
-                <div class="capability-detail">
-
-                    <span class="capability-index" id="capabilityIndex">
-                        01
-                    </span>
-
-                    <h3 id="capabilityTitle">
-                        Networking
-                    </h3>
-
-                    <p id="capabilityDescription">
-                        Understanding how endpoints communicate and how
-                        traffic moves through an infrastructure.
-                    </p>
-
-                    <div
-                        class="capability-tags"
-                        id="capabilityTags"
-                    >
-                        <span>TCP/IP</span>
-                        <span>IPv4</span>
-                        <span>Subnetting</span>
-                        <span>DNS</span>
-                        <span>DHCP</span>
-                        <span>VLANs</span>
-                        <span>Routing</span>
-                        <span>Switching</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         EDUCATION / CERT
-         ===================================================== -->
-
-    <section class="credentials-section">
-
-        <div class="container credentials-layout">
+          <div class="architecture-header">
 
             <div>
-                <span>ACTIVE CERTIFICATION</span>
-                <strong>CompTIA Security+</strong>
+              <span>Architecture</span>
+              <strong>Request path</strong>
             </div>
 
+            <button type="button" id="runTrace">
+              Trace request
+            </button>
+
+          </div>
+
+
+          <div class="architecture-flow">
+
+            <button
+              type="button"
+              class="architecture-node"
+              data-node="internet"
+            >
+              <span>Internet</span>
+              <small>Client request</small>
+            </button>
+
+            <div class="connector"></div>
+
+
+            <button
+              type="button"
+              class="architecture-node"
+              data-node="gateway"
+            >
+              <span>Internet Gateway</span>
+              <small>VPC edge</small>
+            </button>
+
+            <div class="connector"></div>
+
+
+            <button
+              type="button"
+              class="architecture-node active"
+              data-node="nginx"
+            >
+              <span>Public EC2</span>
+              <small>Nginx · :80</small>
+            </button>
+
+            <div class="connector"></div>
+
+
+            <button
+              type="button"
+              class="architecture-node"
+              data-node="app"
+            >
+              <span>Private EC2</span>
+              <small>Application · :8080</small>
+            </button>
+
+          </div>
+
+
+          <div class="architecture-detail">
+
             <div>
-                <span>CONTINUING EDUCATION</span>
-                <strong>
-                    Cybersecurity · Networking · Cloud · IT
-                </strong>
+              <span id="detailType">
+                Public entry point
+              </span>
+
+              <h4 id="detailTitle">
+                Public EC2 / Nginx
+              </h4>
             </div>
+
+            <p id="detailText">
+              Nginx accepts HTTP traffic from the internet and
+              forwards application requests to the private EC2
+              instance over the VPC network.
+            </p>
+
+          </div>
 
         </div>
 
-    </section>
+
+        <!-- WHAT I LEARNED -->
+        <div class="project-notes">
+
+          <div>
+            <h4>Network design</h4>
+
+            <p>
+              The VPC uses separate public and private subnets across
+              two Availability Zones. The private application host
+              does not need a public IPv4 address.
+            </p>
+          </div>
 
 
-    <!-- =====================================================
-         CONTACT
-         ===================================================== -->
+          <div>
+            <h4>Security boundaries</h4>
 
-    <section class="contact-section" id="contact">
-
-        <div class="container contact-layout">
-
-            <div>
-
-                <p class="section-number section-number-light">
-                    04 / CONTACT
-                </p>
-
-                <h2>
-                    I'm interested in
-                    <span>systems worth figuring out.</span>
-                </h2>
-
-            </div>
+            <p>
+              Application traffic on port 8080 is limited to the
+              intended source rather than exposing the application
+              directly to the internet.
+            </p>
+          </div>
 
 
-            <div class="contact-actions">
+          <div>
+            <h4>Linux services</h4>
 
-                <a href="mailto:jeremy.dehorty@gmail.com">
-                    <span>
-                        EMAIL
-                    </span>
-
-                    <strong>
-                        jeremy.dehorty@gmail.com
-                    </strong>
-
-                    <b>↗</b>
-                </a>
-
-
-                <a
-                    href="https://www.linkedin.com/in/jeremy-dehorty-57906620b/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <span>
-                        LINKEDIN
-                    </span>
-
-                    <strong>
-                        Connect
-                    </strong>
-
-                    <b>↗</b>
-                </a>
-
-
-                <a
-                    href="https://github.com/jeremydeh1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <span>
-                        GITHUB
-                    </span>
-
-                    <strong>
-                        View the work
-                    </strong>
-
-                    <b>↗</b>
-                </a>
-
-            </div>
+            <p>
+              Nginx handles reverse proxying while systemd keeps the
+              private application service running across reboots.
+            </p>
+          </div>
 
         </div>
 
-    </section>
+
+        <!-- TROUBLESHOOTING -->
+        <div class="debug-story">
+
+          <div>
+
+            <p class="small-heading">
+              Troubleshooting example
+            </p>
+
+            <h3>
+              The service was running, but the site wasn't reachable.
+            </h3>
+
+            <p>
+              Instead of changing settings at random, I worked
+              outward through each layer of the system.
+            </p>
+
+          </div>
+
+
+          <div class="debug-steps">
+
+            <button
+              type="button"
+              class="debug-step active"
+              data-step="0"
+            >
+              <span>01</span>
+              Verify Nginx
+            </button>
+
+            <button
+              type="button"
+              class="debug-step"
+              data-step="1"
+            >
+              <span>02</span>
+              Test localhost
+            </button>
+
+            <button
+              type="button"
+              class="debug-step"
+              data-step="2"
+            >
+              <span>03</span>
+              Check security groups
+            </button>
+
+            <button
+              type="button"
+              class="debug-step"
+              data-step="3"
+            >
+              <span>04</span>
+              Inspect routes
+            </button>
+
+            <button
+              type="button"
+              class="debug-step"
+              data-step="4"
+            >
+              <span>05</span>
+              Check NACL
+            </button>
+
+            <button
+              type="button"
+              class="debug-step"
+              data-step="5"
+            >
+              <span>06</span>
+              Test externally
+            </button>
+
+          </div>
+
+
+          <div class="debug-result">
+
+            <span id="debugLabel">
+              Service
+            </span>
+
+            <p id="debugText">
+              First, confirm Nginx is actually running. There is no
+              reason to troubleshoot AWS networking if the service
+              itself is down.
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- NETWORK PROJECT -->
+      <article class="project simple-project">
+
+        <div class="project-info">
+
+          <div class="project-number">
+            02
+          </div>
+
+          <div>
+
+            <div class="status">
+              In progress
+            </div>
+
+            <h3>
+              Network Engineering Lab
+            </h3>
+
+            <p>
+              I'm building a stronger networking foundation through
+              hands-on work with IPv4 addressing, subnetting,
+              switching, VLANs, routing, and troubleshooting.
+            </p>
+
+            <div class="tags">
+              <span>TCP/IP</span>
+              <span>Subnetting</span>
+              <span>VLANs</span>
+              <span>Routing</span>
+              <span>Switching</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- EXPERIENCE -->
+  <section class="section alt-section" id="experience">
+    <div class="container">
+
+      <div class="section-heading">
+        <p>Experience</p>
+
+        <h2>
+          Enterprise IT gave me the foundation.
+        </h2>
+      </div>
+
+
+      <div class="experience">
+
+        <div class="experience-title">
+
+          <span>Current</span>
+
+          <h3>
+            United States Air Force
+          </h3>
+
+          <p>
+            Client Systems Technician
+          </p>
+
+        </div>
+
+
+        <div class="experience-details">
+
+          <div>
+            <h4>Enterprise systems</h4>
+
+            <p>
+              Deploy, configure, maintain, and troubleshoot endpoints,
+              operating systems, applications, peripherals, and
+              supporting IT services.
+            </p>
+          </div>
+
+
+          <div>
+            <h4>Troubleshooting</h4>
+
+            <p>
+              Diagnose issues across hardware, software,
+              authentication, connectivity, and network-dependent
+              services.
+            </p>
+          </div>
+
+
+          <div>
+            <h4>Secure environments</h4>
+
+            <p>
+              Work in access-controlled IT environments where secure
+              configuration, documentation, and operational discipline
+              matter.
+            </p>
+          </div>
+
+
+          <div>
+            <h4>Technical operations</h4>
+
+            <p>
+              Support system deployments, upgrades, collaboration
+              technology, documentation, and day-to-day technical
+              operations.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="container">
+
+      <div class="section-heading">
+        <p>Skills</p>
+
+        <h2>
+          What I'm working with.
+        </h2>
+      </div>
+
+
+      <div class="skills-grid">
+
+        <div class="skill-group">
+
+          <h3>Cloud</h3>
+
+          <ul>
+            <li>AWS</li>
+            <li>VPC</li>
+            <li>EC2</li>
+            <li>Security Groups</li>
+            <li>IAM fundamentals</li>
+          </ul>
+
+        </div>
+
+
+        <div class="skill-group">
+
+          <h3>Networking</h3>
+
+          <ul>
+            <li>TCP/IP</li>
+            <li>IPv4</li>
+            <li>Subnetting</li>
+            <li>DNS & DHCP</li>
+            <li>VLANs</li>
+            <li>Routing & switching</li>
+          </ul>
+
+        </div>
+
+
+        <div class="skill-group">
+
+          <h3>Systems</h3>
+
+          <ul>
+            <li>Linux</li>
+            <li>Windows</li>
+            <li>Nginx</li>
+            <li>systemd</li>
+            <li>SSH</li>
+            <li>PowerShell</li>
+          </ul>
+
+        </div>
+
+
+        <div class="skill-group">
+
+          <h3>Tools</h3>
+
+          <ul>
+            <li>Git</li>
+            <li>GitHub</li>
+            <li>VS Code</li>
+            <li>Technical documentation</li>
+            <li>Troubleshooting</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <div class="learning">
+
+        <span>Currently going deeper</span>
+
+        <p>
+          AWS architecture, load balancing, monitoring,
+          Terraform, infrastructure as code, and cloud automation.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container contact-grid">
+
+      <div>
+
+        <p class="small-heading">
+          Contact
+        </p>
+
+        <h2>
+          Let's talk infrastructure.
+        </h2>
+
+        <p>
+          I'm interested in opportunities around cloud
+          infrastructure, networking, systems, and platform
+          engineering.
+        </p>
+
+      </div>
+
+
+      <div class="contact-links">
+
+        <a href="mailto:jeremy.dehorty@gmail.com">
+          Email
+          <span>↗</span>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/jeremy-dehorty-57906620b/"
+          target="_blank"
+          rel="noopener"
+        >
+          LinkedIn
+          <span>↗</span>
+        </a>
+
+        <a
+          href="https://github.com/jeremydeh1"
+          target="_blank"
+          rel="noopener"
+        >
+          GitHub
+          <span>↗</span>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
 
 </main>
 
 
 <footer>
+  <div class="container footer-content">
 
-    <div class="container footer-layout">
+    <span>
+      © 2026 Jeremy Dehorty
+    </span>
 
-        <span>
-            Jeremy Dehorty
-        </span>
+    <button
+      type="button"
+      id="packetEgg"
+      title="?"
+    >
+      JD
+    </button>
 
-        <span>
-            Infrastructure / Networking / Cloud
-        </span>
-
-        <span>
-            © 2026
-        </span>
-
-    </div>
-
+  </div>
 </footer>
 
 
