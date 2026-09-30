@@ -1,400 +1,803 @@
-const nodes = {
+/* =========================================================
+   HERO SYSTEM MAP
+   ========================================================= */
+
+const heroNodeData = {
     internet: {
-        title: "Internet / Client",
+        label: "INTERNET",
         text:
-            "A browser request begins outside the AWS environment and must enter through the public-facing network path.",
-        access: "External",
-        port: "HTTP",
-        role: "Request Source"
+            "A browser request begins outside the AWS environment and needs a valid path into the VPC."
     },
 
-    igw: {
-        title: "Internet Gateway",
+    edge: {
+        label: "PUBLIC EDGE",
         text:
-            "The Internet Gateway connects the VPC's public routing path to the internet. Public subnet routing sends internet-bound traffic through it.",
-        access: "Public",
-        port: "—",
-        role: "VPC Gateway"
+            "The Internet Gateway and public route provide the network path between the public subnet and the internet."
     },
 
     nginx: {
-        title: "Public EC2 / Nginx",
+        label: "NGINX",
         text:
-            "The public Amazon Linux instance receives HTTP traffic and uses Nginx as a reverse proxy to reach the private application server.",
-        access: "Public",
-        port: "80",
-        role: "Reverse Proxy"
+            "Public entry point that reverse-proxies application traffic into the private subnet."
     },
 
     app: {
-        title: "Private EC2 / Application",
+        label: "PRIVATE APPLICATION",
         text:
-            "The application server has no public IPv4 address. Application traffic reaches it from the public EC2 instance over TCP 8080.",
-        access: "Private",
-        port: "8080",
-        role: "Application"
+            "The application runs on a private EC2 instance without a public IPv4 address and receives application traffic on TCP 8080."
     }
 };
 
 
-const architectureNodes =
-    document.querySelectorAll(".architecture-node");
+const heroNodes =
+    document.querySelectorAll("[data-hero-node]");
 
-const inspectorTitle =
-    document.getElementById("inspectorTitle");
+const heroInsightLabel =
+    document.getElementById("heroInsightLabel");
 
-const inspectorText =
-    document.getElementById("inspectorText");
-
-const detailAccess =
-    document.getElementById("detailAccess");
-
-const detailPort =
-    document.getElementById("detailPort");
-
-const detailRole =
-    document.getElementById("detailRole");
-
-const requestLog =
-    document.getElementById("requestLog");
-
-const requestButton =
-    document.getElementById("requestButton");
-
-const securityButton =
-    document.getElementById("securityButton");
-
-const lab =
-    document.querySelector(".lab");
-
-const packet =
-    document.querySelector(".packet");
+const heroInsight =
+    document.getElementById("heroInsight");
 
 
-function selectNode(nodeName) {
-
-    const data = nodes[nodeName];
+const selectHeroNode = (name) => {
+    const data = heroNodeData[name];
 
     if (!data) {
         return;
     }
 
-    architectureNodes.forEach((node) => {
+    heroNodes.forEach((node) => {
         node.classList.toggle(
             "selected",
-            node.dataset.node === nodeName
+            node.dataset.heroNode === name
         );
     });
 
-    inspectorTitle.textContent = data.title;
-    inspectorText.textContent = data.text;
+    heroInsightLabel.textContent =
+        data.label;
 
-    detailAccess.textContent = data.access;
-    detailPort.textContent = data.port;
-    detailRole.textContent = data.role;
-}
+    heroInsight.textContent =
+        data.text;
+};
 
 
-architectureNodes.forEach((node) => {
-
+heroNodes.forEach((node) => {
     node.addEventListener("click", () => {
-        selectNode(node.dataset.node);
+        selectHeroNode(node.dataset.heroNode);
     });
-
 });
 
 
-selectNode("nginx");
+selectHeroNode("nginx");
 
 
 /* =========================================================
-   REQUEST ANIMATION
+   PROJECT SELECTOR
    ========================================================= */
 
-let requestRunning = false;
+const projectTabs =
+    document.querySelectorAll(".project-tab");
 
-const requestSequence = [
-    {
-        node: "internet",
-        message: "Client → HTTP request begins"
+const projectPanels =
+    document.querySelectorAll(".project-panel");
+
+
+const selectProject = (projectName) => {
+
+    projectTabs.forEach((tab) => {
+        const selected =
+            tab.dataset.project === projectName;
+
+        tab.classList.toggle("active", selected);
+
+        tab.setAttribute(
+            "aria-selected",
+            String(selected)
+        );
+    });
+
+
+    projectPanels.forEach((panel) => {
+        const selected =
+            panel.dataset.panel === projectName;
+
+        panel.classList.toggle("active", selected);
+
+        panel.hidden = !selected;
+    });
+
+};
+
+
+projectTabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+        selectProject(tab.dataset.project);
+    });
+});
+
+
+/* =========================================================
+   AWS ARCHITECTURE INSPECTOR
+   ========================================================= */
+
+const componentData = {
+    internet: {
+        title: "Internet / Client",
+        description:
+            "The request begins outside AWS and must reach the public network path before anything inside the VPC can respond.",
+        exposure: "External",
+        traffic: "HTTP",
+        purpose: "Request origin",
+        decision:
+            "Treat the internet as an untrusted boundary. Only the services that need public access should be reachable from it."
     },
-    {
-        node: "igw",
-        message: "Request enters the VPC through the Internet Gateway"
+
+    igw: {
+        title: "Internet Gateway",
+        description:
+            "The Internet Gateway attaches to the VPC and provides the public routing path used by resources in the public subnet.",
+        exposure: "VPC edge",
+        traffic: "IP routing",
+        purpose: "Internet path",
+        decision:
+            "A subnet does not become public just because it exists. Its route table needs a path through the Internet Gateway."
     },
-    {
-        node: "nginx",
-        message: "Public EC2 receives TCP/80 → Nginx evaluates /app/"
+
+    nginx: {
+        title: "Public EC2 / Nginx",
+        description:
+            "The public Amazon Linux instance receives HTTP traffic and uses Nginx to reverse-proxy application requests to the private server.",
+        exposure: "Public",
+        traffic: "TCP 80",
+        purpose: "Reverse proxy",
+        decision:
+            "The public server handles the internet boundary while the application itself remains on a private instance."
     },
+
+    app: {
+        title: "Private EC2 / Application",
+        description:
+            "The application runs on the private EC2 instance and receives proxied traffic over TCP port 8080.",
+        exposure: "Private",
+        traffic: "TCP 8080",
+        purpose: "Application tier",
+        decision:
+            "The application server does not need a public IPv4 address. Access can be constrained to traffic originating from the public EC2 security group."
+    }
+};
+
+
+const architectureComponents =
+    document.querySelectorAll(".architecture-component");
+
+const componentTitle =
+    document.getElementById("componentTitle");
+
+const componentDescription =
+    document.getElementById("componentDescription");
+
+const componentExposure =
+    document.getElementById("componentExposure");
+
+const componentTraffic =
+    document.getElementById("componentTraffic");
+
+const componentPurpose =
+    document.getElementById("componentPurpose");
+
+const componentDecision =
+    document.getElementById("componentDecision");
+
+
+const selectArchitectureComponent = (name) => {
+
+    const data = componentData[name];
+
+    if (!data) {
+        return;
+    }
+
+
+    architectureComponents.forEach((component) => {
+        component.classList.toggle(
+            "selected",
+            component.dataset.component === name
+        );
+    });
+
+
+    componentTitle.textContent =
+        data.title;
+
+    componentDescription.textContent =
+        data.description;
+
+    componentExposure.textContent =
+        data.exposure;
+
+    componentTraffic.textContent =
+        data.traffic;
+
+    componentPurpose.textContent =
+        data.purpose;
+
+    componentDecision.textContent =
+        data.decision;
+};
+
+
+architectureComponents.forEach((component) => {
+    component.addEventListener("click", () => {
+        selectArchitectureComponent(
+            component.dataset.component
+        );
+    });
+});
+
+
+selectArchitectureComponent("nginx");
+
+
+/* =========================================================
+   REQUEST TRACE
+   ========================================================= */
+
+const traceButton =
+    document.getElementById("traceButton");
+
+const architectureRoute =
+    document.getElementById("architectureRoute");
+
+const traceStatus =
+    document.getElementById("traceStatus");
+
+let traceRunning = false;
+
+
+const traceSequence = [
     {
-        node: "app",
-        message: "Nginx proxies request → Private EC2 :8080"
+        component: "internet",
+        message:
+            "1/4 · Client creates an HTTP request."
+    },
+
+    {
+        component: "igw",
+        message:
+            "2/4 · Traffic reaches the VPC through the Internet Gateway and public route."
+    },
+
+    {
+        component: "nginx",
+        message:
+            "3/4 · Public EC2 receives TCP 80. Nginx handles the request and matches the application route."
+    },
+
+    {
+        component: "app",
+        message:
+            "4/4 · Nginx forwards the request to the private application server on TCP 8080."
     }
 ];
 
 
-function wait(milliseconds) {
+const wait = (milliseconds) => {
     return new Promise((resolve) => {
-        setTimeout(resolve, milliseconds);
+        window.setTimeout(resolve, milliseconds);
     });
-}
+};
 
 
-async function animateRequest() {
+const clearTraceClasses = () => {
+    architectureComponents.forEach((component) => {
+        component.classList.remove("trace-active");
+    });
+};
 
-    if (requestRunning) {
+
+const runTrace = async () => {
+
+    if (traceRunning) {
         return;
     }
 
-    requestRunning = true;
 
-    requestButton.disabled = true;
-    requestButton.textContent = "Sending...";
+    traceRunning = true;
 
-    if (packet) {
-        packet.classList.add("running");
-    }
+    traceButton.disabled = true;
 
-    for (const step of requestSequence) {
+    traceButton.firstChild.textContent =
+        "Tracing ";
 
-        selectNode(step.node);
 
-        requestLog.textContent = step.message;
+    architectureRoute.classList.remove("tracing");
+
+    void architectureRoute.offsetWidth;
+
+    architectureRoute.classList.add("tracing");
+
+
+    for (const step of traceSequence) {
+
+        clearTraceClasses();
+
+        const component =
+            document.querySelector(
+                `[data-component="${step.component}"]`
+            );
+
+        if (component) {
+            component.classList.add("trace-active");
+        }
+
+        selectArchitectureComponent(
+            step.component
+        );
+
+        traceStatus.textContent =
+            step.message;
 
         await wait(850);
     }
 
-    requestLog.textContent =
-        "200 OK ← response returned through Nginx to the client";
 
-    await wait(1000);
+    clearTraceClasses();
 
-    if (packet) {
-        packet.classList.remove("running");
-    }
+    traceStatus.textContent =
+        "Response path verified · the application response returns through Nginx to the client.";
 
-    requestButton.disabled = false;
-    requestButton.textContent = "▶ Send Request";
+    architectureRoute.classList.remove("tracing");
 
-    requestRunning = false;
-}
+    traceButton.disabled = false;
+
+    traceButton.firstChild.textContent =
+        "Trace request ";
+
+    traceRunning = false;
+};
 
 
-requestButton.addEventListener("click", animateRequest);
+traceButton.addEventListener(
+    "click",
+    runTrace
+);
 
 
 /* =========================================================
    SECURITY VIEW
    ========================================================= */
 
-securityButton.addEventListener("click", () => {
+const securityToggle =
+    document.getElementById("securityToggle");
+
+const architectureShell =
+    document.querySelector(".architecture-shell");
+
+
+securityToggle.addEventListener("click", () => {
 
     const enabled =
-        lab.classList.toggle("security-mode");
+        architectureShell.classList.toggle(
+            "security-view"
+        );
 
-    securityButton.classList.toggle("active", enabled);
+
+    securityToggle.classList.toggle(
+        "active",
+        enabled
+    );
+
+
+    securityToggle.setAttribute(
+        "aria-pressed",
+        String(enabled)
+    );
+
 
     if (enabled) {
 
-        requestLog.textContent =
-            "Security view: Internet access terminates at the public tier. The private application accepts internal traffic from the public EC2 security group.";
+        traceStatus.textContent =
+            "Security view · orange marks the internet-facing boundary; blue marks the private application network.";
 
-        selectNode("app");
+        selectArchitectureComponent("app");
 
     } else {
 
-        requestLog.textContent =
-            "Security view disabled — select a component or send a request.";
+        traceStatus.textContent =
+            "Security view disabled. Select a component or trace the complete request.";
 
-        selectNode("nginx");
+        selectArchitectureComponent("nginx");
     }
 
 });
 
 
 /* =========================================================
-   TROUBLESHOOTING
+   TROUBLESHOOTING STORY
    ========================================================= */
 
-const troubleshooting = [
+const diagnosticSteps = [
     {
-        title: "Is Nginx actually running?",
+        title: "Verify the service",
         text:
-            "Start at the service itself. I verified Nginx status before blaming AWS networking.",
-        status: "Service operational"
+            "Confirm Nginx is running before diagnosing the network around it."
     },
 
     {
-        title: "Does HTTP work locally?",
+        title: "Test HTTP locally",
         text:
-            "I used curl from the instance itself. A successful local response proves the web service is listening before testing the external path.",
-        status: "Local HTTP confirmed"
+            "Use curl from the instance itself. If localhost works, the web service is listening and the investigation can move outward."
     },
 
     {
-        title: "Is the security group allowing traffic?",
+        title: "Inspect security groups",
         text:
-            "I checked inbound rules for the public server and verified the private application rules only allowed the required traffic from the public EC2 security group.",
-        status: "Rules verified"
+            "Verify that the public instance permits the required HTTP traffic and that private-server rules only allow the intended internal source."
     },
 
     {
-        title: "Does the subnet have the right route?",
+        title: "Verify routes and associations",
         text:
-            "I verified the public route table, Internet Gateway route, and subnet association to make sure the instance actually had a valid internet path.",
-        status: "Route path verified"
+            "Check the public route table, Internet Gateway route, and subnet association. A correct server configuration cannot compensate for a broken network path."
     },
 
     {
-        title: "Is the network ACL blocking it?",
+        title: "Check the network ACL",
         text:
-            "After validating the route and security groups, I checked the subnet Network ACL as another possible filtering layer.",
-        status: "ACL checked"
+            "Validate the subnet-level filtering layer after the route and security groups have been confirmed."
     },
 
     {
-        title: "Can TCP port 80 be reached externally?",
+        title: "Test the external port",
         text:
-            "Testing TCP/80 from outside the instance helped confirm whether the AWS network path to Nginx was actually reachable.",
-        status: "External path confirmed"
+            "Test TCP port 80 from outside the instance to verify the full network path reaches Nginx."
     }
 ];
 
 
-const troubleSteps =
-    document.querySelectorAll(".trouble-step");
+const diagnosticStepLabel =
+    document.getElementById("diagnosticStep");
 
-const troubleNumber =
-    document.getElementById("troubleNumber");
+const diagnosticTitle =
+    document.getElementById("diagnosticTitle");
 
-const troubleTitle =
-    document.getElementById("troubleTitle");
+const diagnosticText =
+    document.getElementById("diagnosticText");
 
-const troubleText =
-    document.getElementById("troubleText");
+const diagnosticProgress =
+    document.getElementById("diagnosticProgress");
 
-const troubleStatus =
-    document.getElementById("troubleStatus");
+const diagnosticPrev =
+    document.getElementById("diagnosticPrev");
+
+const diagnosticNext =
+    document.getElementById("diagnosticNext");
+
+const diagnosticDots =
+    document.querySelectorAll(
+        "[data-diagnostic-step]"
+    );
+
+let currentDiagnosticStep = 0;
 
 
-troubleSteps.forEach((button) => {
+const renderDiagnosticStep = (index) => {
 
-    button.addEventListener("click", () => {
+    const boundedIndex =
+        Math.max(
+            0,
+            Math.min(
+                diagnosticSteps.length - 1,
+                index
+            )
+        );
 
-        const index =
-            Number(button.dataset.step);
 
-        const step =
-            troubleshooting[index];
+    currentDiagnosticStep =
+        boundedIndex;
 
-        if (!step) {
-            return;
-        }
 
-        troubleSteps.forEach((item) => {
-            item.classList.remove("active");
-        });
+    const step =
+        diagnosticSteps[boundedIndex];
 
-        button.classList.add("active");
 
-        troubleNumber.textContent =
-            `CHECK ${String(index + 1).padStart(2, "0")}`;
+    diagnosticStepLabel.textContent =
+        `CHECK ${String(boundedIndex + 1).padStart(2, "0")} / ${String(diagnosticSteps.length).padStart(2, "0")}`;
 
-        troubleTitle.textContent =
-            step.title;
+    diagnosticTitle.textContent =
+        step.title;
 
-        troubleText.textContent =
-            step.text;
+    diagnosticText.textContent =
+        step.text;
 
-        troubleStatus.textContent =
-            step.status;
+
+    const percentage =
+        ((boundedIndex + 1) / diagnosticSteps.length) * 100;
+
+    diagnosticProgress.style.width =
+        `${percentage}%`;
+
+
+    diagnosticDots.forEach((dot) => {
+
+        dot.classList.toggle(
+            "active",
+            Number(dot.dataset.diagnosticStep) === boundedIndex
+        );
+
+    });
+
+
+    diagnosticPrev.disabled =
+        boundedIndex === 0;
+
+    diagnosticNext.disabled =
+        boundedIndex === diagnosticSteps.length - 1;
+};
+
+
+diagnosticPrev.addEventListener("click", () => {
+    renderDiagnosticStep(
+        currentDiagnosticStep - 1
+    );
+});
+
+
+diagnosticNext.addEventListener("click", () => {
+    renderDiagnosticStep(
+        currentDiagnosticStep + 1
+    );
+});
+
+
+diagnosticDots.forEach((dot) => {
+
+    dot.addEventListener("click", () => {
+
+        renderDiagnosticStep(
+            Number(dot.dataset.diagnosticStep)
+        );
+
     });
 
 });
 
 
+renderDiagnosticStep(0);
+
+
 /* =========================================================
-   SCROLL REVEALS
+   CAPABILITY EXPLORER
    ========================================================= */
 
-const revealElements =
-    document.querySelectorAll(".reveal");
+const capabilityData = {
+    networking: {
+        index: "01",
+        title: "Networking",
+        description:
+            "Understanding how endpoints communicate and how traffic moves through an infrastructure.",
+        tags: [
+            "TCP/IP",
+            "IPv4",
+            "Subnetting",
+            "DNS",
+            "DHCP",
+            "VLANs",
+            "Routing",
+            "Switching"
+        ]
+    },
+
+    cloud: {
+        index: "02",
+        title: "Cloud & Linux",
+        description:
+            "Building infrastructure in AWS and understanding the Linux systems running inside it.",
+        tags: [
+            "AWS",
+            "VPC",
+            "EC2",
+            "IAM",
+            "Security Groups",
+            "Linux",
+            "Nginx",
+            "systemd",
+            "SSH"
+        ]
+    },
+
+    automation: {
+        index: "03",
+        title: "Automation",
+        description:
+            "Reducing repetitive work, versioning technical changes, and building repeatable workflows.",
+        tags: [
+            "PowerShell",
+            "Git",
+            "GitHub",
+            "Documentation",
+            "CI/CD Fundamentals"
+        ]
+    },
+
+    security: {
+        index: "04",
+        title: "Security",
+        description:
+            "Applying access control and secure administration principles to the systems I build and support.",
+        tags: [
+            "Security+",
+            "Access Control",
+            "Hardening",
+            "Secure Administration",
+            "Network Segmentation"
+        ]
+    }
+};
+
+
+const capabilityButtons =
+    document.querySelectorAll(
+        ".capability-button"
+    );
+
+const capabilityIndex =
+    document.getElementById(
+        "capabilityIndex"
+    );
+
+const capabilityTitle =
+    document.getElementById(
+        "capabilityTitle"
+    );
+
+const capabilityDescription =
+    document.getElementById(
+        "capabilityDescription"
+    );
+
+const capabilityTags =
+    document.getElementById(
+        "capabilityTags"
+    );
+
+
+const selectCapability = (name) => {
+
+    const data =
+        capabilityData[name];
+
+    if (!data) {
+        return;
+    }
+
+
+    capabilityButtons.forEach((button) => {
+
+        button.classList.toggle(
+            "active",
+            button.dataset.capability === name
+        );
+
+    });
+
+
+    capabilityIndex.textContent =
+        data.index;
+
+    capabilityTitle.textContent =
+        data.title;
+
+    capabilityDescription.textContent =
+        data.description;
+
+
+    capabilityTags.replaceChildren();
+
+
+    data.tags.forEach((tag) => {
+
+        const tagElement =
+            document.createElement("span");
+
+        tagElement.textContent =
+            tag;
+
+        capabilityTags.appendChild(
+            tagElement
+        );
+
+    });
+
+};
+
+
+capabilityButtons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+        selectCapability(
+            button.dataset.capability
+        );
+
+    });
+
+});
+
+
+selectCapability("networking");
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+   ========================================================= */
+
+const navLinks =
+    document.querySelectorAll(
+        ".nav-links a"
+    );
+
+const navSections = [
+    "work",
+    "experience",
+    "capabilities",
+    "contact"
+]
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
 
 
 if ("IntersectionObserver" in window) {
 
-    const observer =
+    const navObserver =
         new IntersectionObserver(
             (entries) => {
 
-                entries.forEach((entry) => {
+                const visibleEntry =
+                    entries
+                        .filter(
+                            (entry) =>
+                                entry.isIntersecting
+                        )
+                        .sort(
+                            (a, b) =>
+                                b.intersectionRatio -
+                                a.intersectionRatio
+                        )[0];
 
-                    if (entry.isIntersecting) {
 
-                        entry.target.classList.add("visible");
+                if (!visibleEntry) {
+                    return;
+                }
 
-                        observer.unobserve(entry.target);
-                    }
+
+                navLinks.forEach((link) => {
+
+                    link.classList.toggle(
+                        "active",
+                        link.getAttribute("href") ===
+                            `#${visibleEntry.target.id}`
+                    );
 
                 });
 
             },
             {
-                threshold: 0.12
+                rootMargin:
+                    "-25% 0px -55% 0px",
+
+                threshold: [
+                    0,
+                    0.1,
+                    0.25,
+                    0.5
+                ]
             }
         );
 
 
-    revealElements.forEach((element) => {
-        observer.observe(element);
-    });
-
-} else {
-
-    revealElements.forEach((element) => {
-        element.classList.add("visible");
-    });
-
-}
-
-
-/* =========================================================
-   HERO DEPTH
-   ========================================================= */
-
-const heroVisual =
-    document.querySelector(".visual-window");
-
-const heroSection =
-    document.querySelector(".hero");
-
-
-if (
-    heroVisual &&
-    heroSection &&
-    window.matchMedia("(pointer: fine)").matches
-) {
-
-    heroSection.addEventListener("mousemove", (event) => {
-
-        const rect =
-            heroSection.getBoundingClientRect();
-
-        const x =
-            (event.clientX - rect.left) / rect.width - 0.5;
-
-        const y =
-            (event.clientY - rect.top) / rect.height - 0.5;
-
-        heroVisual.style.transform =
-            `rotateY(${x * 5}deg) rotateX(${y * -5}deg)`;
-    });
-
-
-    heroSection.addEventListener("mouseleave", () => {
-
-        heroVisual.style.transform =
-            "rotateY(0deg) rotateX(0deg)";
+    navSections.forEach((section) => {
+        navObserver.observe(section);
     });
 
 }
